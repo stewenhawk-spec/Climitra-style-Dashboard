@@ -1,0 +1,47 @@
+# VM0044 default methodology constants and lookup tables.
+# These are the Verra defaults (Tables 3 & 4 of the methodology PDF).
+# A project can override any value here via a project-specific config
+# dict passed to load_config() — e.g. a different feedstock's FC,
+# a measured local grid emission factor, or a different CH4 factor
+# from a kiln-specific study rather than the Cornelissen et al. default.
+
+constants:
+  co2_per_c: 3.6667                    # 44/12, carbon-to-CO2 conversion
+  gwp_ch4: 28                          # IPCC AR5, per VM0044 Section 9.1
+  fe_default_low_tech: 0.049           # tCH4 / tonne biochar, unknown kiln (Cornelissen et al. 2016)
+  h_corg_eligibility_threshold: 0.7    # Applicability Condition 10b
+  transport_leakage_threshold_km: 200  # one-way, per CDM Tool 16
+
+emission_factors:
+  diesel_ef_kgco2_per_l: 2.68          # IPCC standard diesel combustion factor
+  grid_ef_kgco2_per_kwh: 0.71          # PLACEHOLDER — replace with project-country/CEA grid EF
+  transport_ef_kgco2_per_tkm: 0.12     # PLACEHOLDER — replace with CDM Tool 12 value or verified local factor
+
+permanence_factor:
+  low_tech_default: 0.56
+  # [min_temp_c, max_temp_c (exclusive), PR value]
+  high_tech_bands:
+    - [600, .inf, 0.89]
+    - [450, 600, 0.80]
+    - [350, 450, 0.65]
+
+# Keyed feedstock_category -> process -> FCp
+# Add new feedstock categories here as new projects onboard.
+fixed_carbon_defaults:
+  wood:
+    pyrolysis: 0.77
+    gasification: 0.52
+  rice_residue:
+    pyrolysis: 0.49
+    gasification: 0.13
+  herbaceous:
+    pyrolysis: 0.65
+    gasification: 0.28
+  animal_manure:
+    pyrolysis: 0.38
+    gasification: 0.09
+
+# Thresholds for the satellite/GEE sourcing cross-check (Biomass_Sourcing_GEE tab)
+satellite_qa:
+  min_classification_confidence_pct: 70
+  over_harvest_tolerance_pct: 5   # % over the satellite biomass estimate before flagging
