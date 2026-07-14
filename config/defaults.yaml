@@ -1,6 +1,0 @@
-google_sheets:
-  credentials_path: "credentials/service_account.json"
-  sheet_id: "1qRmvFvRjYpdO-fMHI0fcoqXIAxVIWJP5Y9f0foYZ46E"
-  worksheets:
-    batch_data: "YOUR_TAB_NAME_HERE"
-    biomass: "YOUR_OTHER_TAB_NAME_HERE"
