@@ -1,0 +1,9 @@
+google_sheets:
+  credentials_path: "credentials/service_account.json"
+  sheet_id: "1qRmvFvRjYpdO-fMHI0fcoqXIAxVIWJP5Y9f0foYZ46E"
+  worksheets:
+    feedstock: "Suppliers & Feedstocks"
+    pyrolysis: "Pyrolysis Batches"
+    lab: "Lab_data"
+    application: "Soil Application"
+    emission: "Emission_Data"
