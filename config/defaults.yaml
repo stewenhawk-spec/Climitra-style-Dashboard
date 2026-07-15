@@ -1,0 +1,18 @@
+# NOTE (multi-client update): sheet_id used to be hardcoded here for a
+# single project. Now every client has their OWN Google Sheet (their own
+# copy of the same template), so the sheet_id lives in the client registry
+# instead (see client_registry.py / views/settings.py) — you pick a client
+# on the Projects tab and that client's sheet_id is used automatically.
+#
+# What stays here is the TEMPLATE: the worksheet/tab names every client's
+# sheet is expected to use. If you change a tab name in the master
+# template, update it here once and it applies to all clients.
+google_sheets:
+  credentials_path: "credentials/service_account.json"
+  worksheets:
+    feedstock: "Suppliers & Feedstocks"
+    pyrolysis: "Pyrolysis Batches"
+    lab: "Lab_data"
+    application: "Soil Application"
+    biomass: "Biomass_Sourcing_GEE"
+    emission: "Emission_Data"
